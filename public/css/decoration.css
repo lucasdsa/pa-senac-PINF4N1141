@@ -1,0 +1,52 @@
+body {
+    font-family: comic;
+
+    background: url(comic_background.png), -webkit-linear-gradient(top left, #ee5f00, white);
+    background: url(comic_background.png), -moz-linear-gradient(top left, #ff6a00, white);
+    background: url(comic_background.png), linear-gradient(top left, #ff6a00, white);
+
+    background-attachment: fixed;
+}
+
+div#menu {
+
+}
+
+div#text {
+    text-align: center;
+}
+
+div#footer {
+
+}
+
+li.menuitem a {
+    color: black;
+    border-radius: 8px;
+}
+
+.thin-border, li.menuitem a, div#header, div#footer {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+
+    background-color: #ffe5b0;
+}
+
+@font-face {
+    font-family: comic;
+    src: url('komika_axis/komika_axis.ttf');
+}
+
+div#header {
+    margin: 0;
+    text-align: center;
+    /*background-image: url(comic.jpg);*/
+}
+
+/*@font-face {
+    font-family: comic;
+    src: url('badaboom.ttf');
+    font-weight: bold;
+}*/
+
