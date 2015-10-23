@@ -9,6 +9,7 @@
 
 <body>
     <div id="page">
+        <button id="menuButton">+</button>
         <div id="header">
             <h1>Descubra a Web</h1>
         </div>
@@ -39,7 +40,7 @@
         function ready() {
             if (window.matchMedia) {
 		
-                var mediaQuery = window.matchMedia('(max-width: 700px)');
+                var mediaQuery = window.matchMedia('(max-width: 1200px)');
                 mediaQuery.addListener(setPage);
                 setPage(mediaQuery);
             }		
@@ -50,15 +51,13 @@
             // Se a largura tela é menor ou igual a 700px
             if (mediaQuery.matches) {
             
-                $('#menu').css('position', 'absolute');
-                $('#menu').css('top', '0');
-                $('#menu').css('left', '0');                
-                $('#menu').css('height', '100%');                
-                $('#menu').css('visibility', 'hidden');                
+                $('#page').css('margin', '0');
+                $('#menuButton').css('display', 'initial');
             }
             else {
-                $('#menu').css('position', 'static');
-                $('#menu').css('visibility', 'visible');
+                $('#page').css('margin-left', '20%');                
+                $('#page').css('margin-right', '20%');
+                $('#menuButton').css('display', 'none');
             }
         }
     </script>
