@@ -1,78 +1,39 @@
-(function () {
-    $('#subscribe').submit(onSubscribe);
-    $('#reset').click(function () {
-        $('#name').css('background-color', 'white');
-    });
+$(document).ready(ready);
 
-    $('#name').change(onNameFieldChange);
-}());
+function ready() {
+    if (window.matchMedia) {
 
-function onSubscribe(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    
-    var name = encodeURIComponent($('#name').val());
-    var email = encodeURIComponent($('#email').val());
-    var password = encodeURIComponent($('#password').val());
-    var sex = $('#male').attr('checked') ? 1 : 0;
-
-    if (email && password) {
-
-        request = new XMLHttpRequest();
-        request.open('POST', 'subscribe', true);
-        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-        var data = 'email=' + email + '&password=' + password +
-                   '&sex=' + sex + '&name=' + name;
-
-        request.send(data);
-        request.onreadystatechange = response;
-    }
-
-    function response() {
-        
-        if (request.readyState === 4) {
-            
-            var innerHTML = $('#text').html();
-            
-            if (request.status === 200) {
-                
-                $('#status').html('Usuário criado com sucesso!');
-            }
-            else {
-                $('#status').html('Erro ao criar usuário!');
-            }
-            
-            request = null;
-        }
+        var mediaQuery = window.matchMedia('(max-width: 1200px)');
+        mediaQuery.addListener(setPage);
+        setPage(mediaQuery);
     }
 }
 
-function onNameFieldChange(event) {
-
-    var name = $('#name').val();
-
-    if (name) {
-
-        var request = new XMLHttpRequest();
-        request.open('POST', 'search', true);
-        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        
-        request.onreadystatechange = function () {
+function setPage(mediaQuery) {
+		
+    // Se a largura tela é menor ou igual a 700px
+    if (mediaQuery.matches) {
             
-            if (request.readyState === 4 && request.status === 200) {
+        // Habilita o botão
+        $('button#menuButton').css('visibility', 'visible');
                 
-                if (request.responseText === 'true')
-                    $('#name').css('background-color', 'green');
-                else
-                    $('#name').css('background-color', '#CF0000');
-
-                request = null;
-            }
-        };
-
-        request.send('name=' + name);
+        // e esconde o menu
+        $('div#menu').css('position', 'absolute');
+        $('div#menu').css('visibility', 'hidden');
+        $('div#menu').css('width', '100%');
+        $('div#menu').css('float', 'none');
+        $('div#text').css('float', 'none');
+        $('div#text').css('width', '100%');
     }
-    else
-        $('#name').css('background-color', 'white');
+    else {
+                
+        // Exibe menu e esconde o botão
+        $('button#menuButton').css('visibility', 'hidden');
+        $('div#menu').css('position', 'static');
+        $('div#menu').css('visibility', 'visible');
+        $('div#menu').css('width', '230px');
+        $('div#menu').css('float', 'left');
+        $('div#text').css('width', '80%');
+        $('div#text').css('float', 'right');
+    }
 }
