@@ -51,13 +51,28 @@
             // Se a largura tela é menor ou igual a 700px
             if (mediaQuery.matches) {
             
-                $('#page').css('margin', '0');
-                $('#menuButton').css('display', 'initial');
+                // Habilita o botão
+                $('button#menuButton').css('visibility', 'visible');
+                
+                // e esconde o menu
+                $('div#menu').css('position', 'absolute');
+                $('div#menu').css('visibility', 'hidden');
+                $('div#menu').css('width', '100%');
+                $('div#menu').css('float', 'none');
+                $('div#text').css('float', 'none');
+                $('div#text').css('width', '100%');
             }
             else {
-                $('#page').css('margin-left', '20%');                
-                $('#page').css('margin-right', '20%');
-                $('#menuButton').css('display', 'none');
+                
+                
+                // Exibe menu e esconde o botão
+                $('button#menuButton').css('visibility', 'hidden');
+                $('div#menu').css('position', 'static');
+                $('div#menu').css('visibility', 'visible');
+                $('div#menu').css('width', '230px');
+                $('div#menu').css('float', 'left');
+                $('div#text').css('width', '80%');
+                $('div#text').css('float', 'right');
             }
         }
     </script>

@@ -18,6 +18,9 @@ div#header {
 div#menu {
     position: absolute;
     visibility: hidden;
+    margin: 20px 0 20px 0;
+    padding: 0;
+    width: 100%;
 }
 
 ul#menulist {
@@ -40,7 +43,7 @@ li.menuitem a {
 }
 
 li.menuitem {
-    display: inline-block;
+    display: block;
     list-style: none;
     margin: 0 5px 5px 5px;
     padding: 0;
@@ -51,6 +54,7 @@ li.menuitem {
 div#page {
     margin: 0;
     position: relative;
+    width: 100%;
 }
 
 div#content {
@@ -64,21 +68,16 @@ div.float {
     padding-right: 0;
 }
 
-div#menu {
-    margin: 20px 0 20px 0;
-    padding: 0;
-    width: 100%;
-}
-
 div#text {
     box-sizing: border-box;
     width: 100%;
     min-height: 500px;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0 20px 0;
 }
 
 div#footer {
+    clear: both;
     width: 100%;
     bottom: 0;
     margin: 0;
