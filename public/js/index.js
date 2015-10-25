@@ -7,9 +7,9 @@ function ready() {
         mediaQuery.addListener(setPage);
         setPage(mediaQuery);
     }
-    
+
     $('button#menuButton').click(function () {
-        
+
         var menuVisibility = $('div#menu').css('visibility');
 
         if (menuVisibility !== 'visible') {

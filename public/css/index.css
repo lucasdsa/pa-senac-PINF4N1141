@@ -1,3 +1,7 @@
+/*
+ * Este arquivo lida com propriedades de layout somente
+ */
+
 * {
     box-sizing: border-box;
 }
@@ -22,11 +26,6 @@ div#menu {
     padding: 0;
     width: 100%;
     z-index: 999;
-    opacity: 0;
-    
-    -webkit-transition: opacity 1.0s;
-    -moz-transition: opacity 1.0s;
-    transition: opacity 1.0s;
 }
 
 ul#menulist {
@@ -68,14 +67,7 @@ div#content {
     width: 100%;
 }
 
-div.float {
-    float:none;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 div#text {
-    box-sizing: border-box;
     width: 100%;
     min-height: 500px;
     padding: 20px;
@@ -96,6 +88,8 @@ input {
 }
 
 button#menuButton {
+    width: 48px;
+    height: 48px;
     position: fixed;
     left: 0;
     top: 50%;
