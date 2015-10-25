@@ -20,9 +20,11 @@ div#header {
 
 /* Elementos específicos */
 div#menu {
-    position: absolute;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
     visibility: hidden;
-    margin: 20px 0 20px 0;
+    margin: 0;
     padding: 0;
     width: 100%;
     z-index: 999;

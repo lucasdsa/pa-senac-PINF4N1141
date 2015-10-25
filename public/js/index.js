@@ -14,11 +14,9 @@ function ready() {
 
         if (menuVisibility !== 'visible') {
             $('div#menu').css('visibility', 'visible');
-            $('div#menu').css('opacity', '1.0');
         }
         else {
             $('div#menu').css('visibility', 'hidden');
-            $('div#menu').css('opacity', '0.0');
         }
     });
 }
@@ -32,10 +30,12 @@ function setPage(mediaQuery) {
         $('button#menuButton').css('visibility', 'visible');
                 
         // e esconde o menu
-        $('div#menu').css('position', 'absolute');
+        $('div#menu').css('position', 'fixed');
         $('div#menu').css('visibility', 'hidden');
         $('div#menu').css('width', '100%');
         $('div#menu').css('float', 'none');
+        $('div#menu').css('top', '0');
+        $('div#menu').css('margin', '0');
         $('div#text').css('float', 'none');
         $('div#text').css('width', '100%');
     }
@@ -48,6 +48,7 @@ function setPage(mediaQuery) {
         $('div#menu').css('width', '230px');
         $('div#menu').css('float', 'left');
         $('div#menu').css('opacity', '1.0');
+        $('div#menu').css('margin', '20px 0 20px 0');
         $('div#text').css('width', '80%');
         $('div#text').css('float', 'right');
     }
