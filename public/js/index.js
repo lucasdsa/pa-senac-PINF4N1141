@@ -32,7 +32,7 @@ function setPage(mediaQuery) {
         $('button#menuButton').css('visibility', 'visible');
                 
         // e esconde o menu
-        $('div#menu').css('position', 'absolute');
+        $('div#menu').css('position', 'fixed');
         $('div#menu').css('visibility', 'hidden');
         $('div#menu').css('width', '100%');
         $('div#menu').css('float', 'none');
