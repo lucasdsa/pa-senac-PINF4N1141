@@ -7,6 +7,20 @@ function ready() {
         mediaQuery.addListener(setPage);
         setPage(mediaQuery);
     }
+    
+    $('button#menuButton').click(function () {
+        
+        var menuVisibility = $('div#menu').css('visibility');
+
+        if (menuVisibility !== 'visible') {
+            $('div#menu').css('visibility', 'visible');
+            $('div#menu').css('opacity', '1.0');
+        }
+        else {
+            $('div#menu').css('visibility', 'hidden');
+            $('div#menu').css('opacity', '0.0');
+        }
+    });
 }
 
 function setPage(mediaQuery) {
@@ -33,6 +47,7 @@ function setPage(mediaQuery) {
         $('div#menu').css('visibility', 'visible');
         $('div#menu').css('width', '230px');
         $('div#menu').css('float', 'left');
+        $('div#menu').css('opacity', '1.0');
         $('div#text').css('width', '80%');
         $('div#text').css('float', 'right');
     }
