@@ -94,6 +94,11 @@ button#menuButton {
     height: 48px;
     position: fixed;
     left: 0;
-    top: 50%;
+    top: 0%;
     z-index: 1000;
+	opacity: 0.3;
+}
+
+button#menuButton:hover {
+    opacity: 1.0;
 }
