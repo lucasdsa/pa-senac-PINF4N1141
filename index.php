@@ -4,14 +4,14 @@
 
     include 'public/header.php';
     
-    echoHeader('Teste');
+    echoHeader('SkillShare');
 ?>
 
 <body>
     <div id="page">
         <button id="menuButton">+</button>
         <div id="header">
-            <h1>Descubra a Web</h1>
+            <h1>SkillShare</h1>
         </div>
 
         <div id="content">

@@ -9,6 +9,7 @@ function echoHeader($title) {
          '<link rel="stylesheet" href="public/css/index.css" />' .
          '<link rel="stylesheet" href="public/css/decoration.css" />' .
          '<script src="public/js/index.js"></script>' .
+         '<title>' . $title . "</title>
          '</head>';
 }
 
