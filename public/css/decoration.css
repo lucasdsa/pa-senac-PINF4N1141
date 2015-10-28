@@ -3,11 +3,7 @@
  */
 
 body {
-    background: -webkit-linear-gradient(top left, #ee5f00, white);
-    background: -moz-linear-gradient(top left, #ff6a00, white);
-	background: -ms-linear-gradient(top left, #ff6a00, white);
-	background: -o-linear-gradient(top left, #ff6a00, white);
-    background: linear-gradient(top left, #ff6a00, white);
+    background-color: white;
 
     background-attachment: fixed;
 }
@@ -16,26 +12,27 @@ div#text {
     text-align: center;
 }
 
+li.menuitem:active {
+	background-color: #004A4A;
+}
+
 li.menuitem a {
     color: black;
     border-radius: 8px;
 }
 
-.thin-border, li.menuitem a, div#header, div#footer {
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
-
-    background-color: #ffe5b0;
-}
-
 div#header {
     margin: 0;
     text-align: center;
+	background-color: #005C5C;
 }
 
 button#menuButton {
     border-radius: 50%;
     outline-style: none;
+}
+
+div#menu {
+	background-color: #005C5C;
 }
 

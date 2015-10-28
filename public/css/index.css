@@ -15,7 +15,7 @@ body {
 /* Cabeçalho */
 div#header {
     height: 100px;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
 /* Elementos específicos */
@@ -101,4 +101,8 @@ button#menuButton {
 
 button#menuButton:hover {
     opacity: 1.0;
+}
+
+h1 {
+	margin: auto;
 }
