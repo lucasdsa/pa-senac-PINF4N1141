@@ -9,7 +9,7 @@
 
 <body>
     <div id="page">
-        <button id="menuButton">+</button>
+        <button id="menuButton"><img src="images/menu.svg"></img></button>
         <div id="header">
             <h1>SkillShare</h1>
         </div>
@@ -25,7 +25,7 @@
                     <li class="menuitem"><a id="articles" href="#">Pessoal</a></li>
                 </ul>
             </div>
-            <div id="text" class="thin-border">
+            <div id="text">
 
                 <h2>Corpo</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -38,8 +38,12 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
 
         <div id="footer">
-            <p>Lucas Viegas</p>
+            <p>Site em desenvolvimento</p>
+            <div>Icons made by
+                <a href="http://www.flaticon.com/authors/bryn-taylor" title="Bryn Taylor">Bryn Taylor</a>
+                from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by
+                <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+            </div>
         </div>
-    </div>
 </body>
 </html>

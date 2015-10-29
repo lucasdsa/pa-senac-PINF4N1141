@@ -12,19 +12,21 @@ div#text {
     text-align: center;
 }
 
-li.menuitem:active {
-	background-color: #004A4A;
+li.menuitem a:hover {
+    background-color: #004A4A;
 }
 
-li.menuitem a {
-    color: black;
-    border-radius: 8px;
+li.menuitem a, div#header {
+    color: white;
+    font-weight: bold;
 }
 
 div#header {
     margin: 0;
     text-align: center;
 	background-color: #005C5C;
+    
+    box-shadow: black 0 1px 1px 1px;
 }
 
 button#menuButton {
@@ -34,5 +36,6 @@ button#menuButton {
 
 div#menu {
 	background-color: #005C5C;
+    box-shadow: black 0 1px 1px 1px;
 }
 
