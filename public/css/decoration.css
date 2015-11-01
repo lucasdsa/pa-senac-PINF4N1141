@@ -10,6 +10,15 @@ body {
 
 div#text {
     text-align: center;
+    margin: auto;
+}
+
+@media only all and (min-width: 1200px) {
+    
+    div#text {
+        padding-left: 18%;
+        padding-right: 18%;
+    }
 }
 
 li.menuitem a:hover {
