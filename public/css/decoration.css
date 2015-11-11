@@ -1,0 +1,59 @@
+/*
+ * Este aquivo lida com a estilização das páginas (cores, bordas, fontes, etc.)
+ */
+
+body {
+    background-color: white;
+
+    background-attachment: fixed;
+
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+div#text {
+    text-align: center;
+    margin: auto;
+    font-size: 50px;
+}
+
+@media only all and (min-width: 1200px) {
+    
+    div#text {
+        padding-left: 18%;
+        padding-right: 18%;
+    }
+}
+
+li.menuitem a:hover {
+    background-color: #004A4A;
+}
+
+li.menuitem a, div#header {
+    color: white;
+    font-weight: bold;
+}
+
+div#header {
+    margin: 0;
+    text-align: center;
+    background-color: #005C5C;
+    
+    box-shadow: black 0 1px 1px 1px;
+}
+
+button#menuButton {
+    border-radius: 50%;
+    outline-style: none;
+}
+
+div#menu {
+    background-color: #005C5C;
+    box-shadow: black 0 1px 1px 1px;
+}
+
+a {
+    text-decoration: none;
+}
+
