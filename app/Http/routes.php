@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('index')->with('title', 'Skill Share');
 });
+
+Route::get('/database_test', 'SkilledOneController@index');
