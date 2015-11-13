@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controlleras
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,13 +15,17 @@ class NavigationController extends Controller {
      */
     public function handleSession(Request $request) {
 
-        if ($request->session()->has('logged')) {
+        if ($request->session()->has('user')) {
 
-            echo 'Yeah! You are logged!';
+            return view('index')->
+                nest('menu', 'menus.menu_guest')->
+                    with('title', 'Skill Share');
         }
         else {
 
-            return view('index');
+            return view('index')->
+                nest('menu', 'menus.menu_guest')->
+                    with('title', 'Skill Share');
         }
     }
 }

@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index')->with('title', 'Skill Share');
-});
+Route::get('/', 'NavigationController@handleSession');
 
 Route::get('/database_test', 'SkilledOneController@index');
