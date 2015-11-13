@@ -105,7 +105,7 @@ button#menuButton {
     left: 0;
     top: 0%;
     z-index: 1000;
-	opacity: 0.3;
+    opacity: 0.3;
 }
 
 button#menuButton:hover {
@@ -113,5 +113,5 @@ button#menuButton:hover {
 }
 
 h1 {
-	margin: auto;
+    margin: auto;
 }

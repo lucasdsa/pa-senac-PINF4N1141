@@ -6,11 +6,16 @@ body {
     background-color: white;
 
     background-attachment: fixed;
+
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 div#text {
     text-align: center;
     margin: auto;
+    font-size: 50px;
 }
 
 @media only all and (min-width: 1200px) {
@@ -34,6 +39,7 @@ div#header {
     margin: 0;
     text-align: center;
 	background-color: #005C5C;
+    background-color: #005C5C;
     
     box-shadow: black 0 1px 1px 1px;
 }
@@ -48,3 +54,6 @@ div#menu {
     box-shadow: black 0 1px 1px 1px;
 }
 
+a {
+    text-decoration: none;
+}
