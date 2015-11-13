@@ -25,7 +25,7 @@ class NavigationController extends Controller {
 
             return view('index')->
                 nest('menu', 'menus.menu_guest')->
-                    with('title', 'Skill Share');
+                    with('title', 'Skill Share')->with('userImg', 'img/user.svg');
         }
     }
 }
