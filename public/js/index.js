@@ -57,4 +57,34 @@ function ready() {
 
         touchDistanceX = 0;
     });
+    
+    $('a').click(function (event) {
+       
+       event.preventDefault();
+       
+       switch (event.target.id) {
+           
+           case 'home':
+               window.location = '/';
+               break;
+           case 'subscribe':
+               getSubscribeForm();
+       }
+    });
+}
+
+function getSubscribeForm() {
+    
+    $.ajax('/subscribe', {
+           
+        success: function (data, statusString, jqXHR) {
+               
+            $('#text').html(data);
+        },
+           
+        error: function () {
+            
+            $('#text').text('Error!');
+        }
+    });
 }

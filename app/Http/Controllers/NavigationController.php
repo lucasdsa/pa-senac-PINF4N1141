@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
 
 class NavigationController extends Controller {
 
@@ -15,7 +16,7 @@ class NavigationController extends Controller {
      */
     public function handleSession(Request $request) {
 
-        if ($request->session()->has('user')) {
+        if (Auth::check()) {
 
             return view('index')->
                 nest('menu', 'menus.menu_guest')->

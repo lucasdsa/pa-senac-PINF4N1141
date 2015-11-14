@@ -12,5 +12,8 @@
 */
 
 Route::get('/', 'NavigationController@handleSession');
+Route::get('/subscribe', function () {
+   return View::make('forms.subscribe'); 
+});
 
-Route::get('/database_test', 'SkilledOneController@index');
+Route::post('/subscribe', 'SkilledOneController@subscribe');
