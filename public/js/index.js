@@ -68,14 +68,17 @@ function ready() {
                window.location = '/';
                break;
            case 'subscribe':
-               getSubscribeForm();
+               getForm('/subscribe');
+               break;
+           case 'login':
+               getForm('/login');
        }
     });
 }
 
-function getSubscribeForm() {
+function getForm(url) {
     
-    $.ajax('/subscribe', {
+    $.ajax(url, {
            
         success: function (data, statusString, jqXHR) {
                
