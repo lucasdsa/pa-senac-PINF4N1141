@@ -21,4 +21,15 @@ Route::get('/login', function () {
    return View::make('forms.login'); 
 });
 
+Route::post('/logout', 'SkilledOneController@logout');
+
 Route::post('/subscribe', 'SkilledOneController@subscribe');
+Route::post('/login', 'SkilledOneController@login');
+
+Route::filter('csrf-ajax', function () {
+    
+    if (Session::token() != Request::header('x-csrf-token')) {
+        
+        throw new Illuminate\Session\TokenMismatchException;
+    }
+});

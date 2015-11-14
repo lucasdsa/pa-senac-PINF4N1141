@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use App\Models\SkilledOne;
 use Illuminate\Http\Request;
+use Auth;
 
 class SkilledOneController extends Controller {
 
@@ -29,6 +30,27 @@ class SkilledOneController extends Controller {
             
             return 'Error!';
         }
+    }
+    
+    public function login(Request $request) {
+        
+        $email = $request->input('email');
+        $password = $request->input('password');
+        
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            
+            return redirect()->intended('/');
+        }
+        else {
+            
+            return 'Este usuário não existe.';
+        }
+    }
+    
+    public function logout() {
+        
+        Auth::logout();        
+        return 'Logout';
     }
 }
 

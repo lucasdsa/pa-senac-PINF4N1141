@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
+use Crypt;
 
 class NavigationController extends Controller {
 
@@ -19,14 +20,14 @@ class NavigationController extends Controller {
         if (Auth::check()) {
 
             return view('index')->
-                nest('menu', 'menus.menu_guest')->
-                    with('title', 'Skill Share');
+                nest('menu', 'menus.menu_user')->
+                with('title', 'Skill Share')->with('userImg', 'img/user.svg');
         }
         else {
 
             return view('index')->
                 nest('menu', 'menus.menu_guest')->
-                    with('title', 'Skill Share')->with('userImg', 'img/user.svg');
+                with('title', 'Skill Share')->with('userImg', 'img/user.svg');
         }
     }
 }
