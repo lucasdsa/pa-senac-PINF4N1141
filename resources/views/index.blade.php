@@ -35,7 +35,7 @@
         <div id="footer">
             <p>Site em desenvolvimento</p>
             <div>Icon made by
-                <a href="http://buditanrim.co" title="Budi Tanrim">Budi Tanrim</a>from
+                <a href="http://buditanrim.co" title="Budi Tanrim">Budi Tanrim </a>from
                 <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
                 is licensed under
                 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">
