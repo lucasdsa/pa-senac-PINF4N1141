@@ -19,18 +19,20 @@ class NavigationController extends Controller {
 
         if (Auth::check()) {
 
-            return view('index')->
-                nest('head', 'common.head', ['title' => 'Skill Share'])->
-                nest('menu', 'menus.menu_user')->
-                with('userImg', 'img/user.svg');
+            return $this->buildUserView('menus.menu_user', 'img/user.svg');
         }
         else {
 
-            return view('index')->
-                nest('head', 'common.head', ['title' => 'Skill Share'])->
-                nest('menu', 'menus.menu_guest')->
-                with('userImg', 'img/user.svg');
+            return $this->buildUserView('menus.menu_guest', 'img/user.svg');
         }
+    }
+    
+    private function buildUserView($menu, $imgPath) {
+        
+        return view('index')->
+            nest('head', 'common.head', ['title' => 'Skill Share'])->
+            nest('menu', $menu)->
+            with('userImg', $imgPath);
     }
 }
 
