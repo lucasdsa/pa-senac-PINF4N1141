@@ -68,7 +68,9 @@ function ready() {
     $('a').click(function (event) {
        
        event.preventDefault();
-       $('#menu').css('visibility', 'hidden');
+       
+       if ($('#menu').css('width') !== '400px')
+           $('#menu').css('visibility', 'hidden');
        
        switch (event.target.id) {
            
