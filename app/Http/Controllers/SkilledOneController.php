@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use App\Models\SkilledOne;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 use Auth;
 
 class SkilledOneController extends Controller {
@@ -19,12 +20,23 @@ class SkilledOneController extends Controller {
         
         if ($name && $email && $password) {
             
-            return User::create([
-                'name' => $name,
-                'email' => $email,
-                'password' => bcrypt($password),
-                'super' => $super
-            ]);   
+            try {
+                
+                User::create([
+                    'name' => $name,
+                    'email' => $email,
+                    'password' => bcrypt($password),
+                    'super' => $super
+                ]);
+            }
+            catch (QueryException $e) {
+                
+                return view('errors/access_error')->
+                    with('error', 'Usuário já existe')->
+                    with('title', 'Skill Share')->
+                    with('userImg', 'img/user.svg')->
+                    nest('menu', 'menus.menu_guest');
+            }   
         }
         else {
             
@@ -43,7 +55,11 @@ class SkilledOneController extends Controller {
         }
         else {
             
-            return 'Este usuário não existe.';
+            return view('errors/access_error')->
+                with('error', 'Usuário não existente')->
+                with('title', 'Skill Share')->
+                with('userImg', 'img/user.svg')->
+                nest('menu', 'menus.menu_guest');
         }
     }
     
