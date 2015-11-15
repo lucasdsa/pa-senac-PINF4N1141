@@ -17,14 +17,21 @@ class NavigationController extends Controller {
      */
     public function handleSession(Request $request) {
 
-        if (Auth::check()) {
+        $env = null;
 
-            return $this->buildUserView('menus.menu_user', 'img/user.svg');
+        if (Auth::check()) {
+            
+            if (Auth::user()->super)
+                $env = $this->buildUserView('menus.menu_admin', 'img/user.svg');
+            else
+                $env = $this->buildUserView('menus.menu_user', 'img/user.svg');
         }
         else {
 
-            return $this->buildUserView('menus.menu_guest', 'img/user.svg');
+            $env = $this->buildUserView('menus.menu_guest', 'img/user.svg');
         }
+        
+        return $env;
     }
     
     private function buildUserView($menu, $imgPath) {
