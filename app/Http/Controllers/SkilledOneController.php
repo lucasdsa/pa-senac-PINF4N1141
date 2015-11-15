@@ -10,6 +10,15 @@ use Illuminate\Database\QueryException;
 use Auth;
 
 class SkilledOneController extends Controller {
+    
+    private function buildErrorView($message, $imgPath) {
+        
+        return view('errors.access_error')->
+            nest('head', 'common.head', ['title' => 'Skill Share'])->
+            with('error', $message)->
+            with('userImg', $imgPath)->
+            nest('menu', 'menus.menu_guest');
+    }
 
     public function subscribe(Request $request) {
         
@@ -31,12 +40,10 @@ class SkilledOneController extends Controller {
             }
             catch (QueryException $e) {
                 
-                return view('errors/access_error')->
-                    with('error', 'Usuário já existe')->
-                    with('title', 'Skill Share')->
-                    with('userImg', 'img/user.svg')->
-                    nest('menu', 'menus.menu_guest');
-            }   
+                return $this->buildErrorView('Usuário já existe', 'img/user.svg');
+            }
+            
+            return $this->buildErrorView('Usuário criado com sucesso', 'img/user.svg');
         }
         else {
             
@@ -55,11 +62,7 @@ class SkilledOneController extends Controller {
         }
         else {
             
-            return view('errors/access_error')->
-                with('error', 'Usuário não existente')->
-                with('title', 'Skill Share')->
-                with('userImg', 'img/user.svg')->
-                nest('menu', 'menus.menu_guest');
+            return $this->buildErrorView('Usuário inexistente', 'img/user.svg');
         }
     }
     

@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="{!! asset('js/index.js') !!}"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{!! asset('css/index.css') !!}" />
-    <link rel="stylesheet" href="{!! asset('css/decoration.css') !!}" />
-    <title><?php echo $title; ?></title>
+    {!! $head !!}
 </head>
 
 <body>

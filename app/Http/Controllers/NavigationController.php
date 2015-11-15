@@ -20,14 +20,16 @@ class NavigationController extends Controller {
         if (Auth::check()) {
 
             return view('index')->
+                nest('head', 'common.head', ['title' => 'Skill Share'])->
                 nest('menu', 'menus.menu_user')->
-                with('title', 'Skill Share')->with('userImg', 'img/user.svg');
+                with('userImg', 'img/user.svg');
         }
         else {
 
             return view('index')->
+                nest('head', 'common.head', ['title' => 'Skill Share'])->
                 nest('menu', 'menus.menu_guest')->
-                with('title', 'Skill Share')->with('userImg', 'img/user.svg');
+                with('userImg', 'img/user.svg');
         }
     }
 }
