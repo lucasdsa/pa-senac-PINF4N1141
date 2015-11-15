@@ -45,11 +45,11 @@ function ready() {
 
     window.addEventListener('touchend', function (event) {
 
-        if (touchDistanceX > 300) {
+        if (touchDistanceX > 150) {
 
             $('div#menu').css('visibility', 'visible');
         }
-        else if (touchDistanceX < -300) {
+        else if (touchDistanceX < -150) {
 
             $('div#menu').css('visibility', 'hidden');
         }
