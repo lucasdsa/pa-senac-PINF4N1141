@@ -77,6 +77,7 @@ function ready() {
            case 'home':
                window.location = '/';
                break;
+           case 'add':
            case 'subscribe':
                getForm('/subscribe');
                break;

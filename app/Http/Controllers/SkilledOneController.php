@@ -13,11 +13,14 @@ class SkilledOneController extends Controller {
     
     private function buildErrorView($message, $imgPath) {
         
+        $menu = (Auth::check() && Auth::user()->super) ?
+                 'menus.menu_admin' : 'menus.menu_guest';
+        
         return view('errors.access_error')->
             nest('head', 'common.head', ['title' => 'Skill Share'])->
             with('error', $message)->
             with('userImg', $imgPath)->
-            nest('menu', 'menus.menu_guest');
+            nest('menu', $menu);
     }
 
     public function subscribe(Request $request) {
@@ -25,7 +28,9 @@ class SkilledOneController extends Controller {
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
-        $super = ($request->input('super')) ? true : false;
+        // Para poder adicionar outro administrador é necessário
+        // estar logado como outro administrador
+        $super = ($request->input('super') && Auth::user()->super) ? true : false;
         
         if ($name && $email && $password) {
             
