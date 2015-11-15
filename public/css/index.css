@@ -115,3 +115,8 @@ button#menuButton:hover {
 h1 {
     margin: auto;
 }
+
+img {
+    max-width: 30px;
+    max-height: 30px;
+}

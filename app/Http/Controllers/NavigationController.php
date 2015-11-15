@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
+use Crypt;
 
 class NavigationController extends Controller {
 
@@ -15,17 +17,19 @@ class NavigationController extends Controller {
      */
     public function handleSession(Request $request) {
 
-        if ($request->session()->has('user')) {
+        if (Auth::check()) {
 
             return view('index')->
-                nest('menu', 'menus.menu_guest')->
-                    with('title', 'Skill Share');
+                nest('head', 'common.head', ['title' => 'Skill Share'])->
+                nest('menu', 'menus.menu_user')->
+                with('userImg', 'img/user.svg');
         }
         else {
 
             return view('index')->
+                nest('head', 'common.head', ['title' => 'Skill Share'])->
                 nest('menu', 'menus.menu_guest')->
-                    with('title', 'Skill Share');
+                with('userImg', 'img/user.svg');
         }
     }
 }

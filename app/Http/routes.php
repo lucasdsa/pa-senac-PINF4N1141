@@ -13,4 +13,23 @@
 
 Route::get('/', 'NavigationController@handleSession');
 
-Route::get('/database_test', 'SkilledOneController@index');
+Route::get('/subscribe', function () {
+   return View::make('forms.subscribe'); 
+});
+
+Route::get('/login', function () {
+   return View::make('forms.login'); 
+});
+
+Route::post('/logout', 'SkilledOneController@logout');
+
+Route::post('/subscribe', 'SkilledOneController@subscribe');
+Route::post('/login', 'SkilledOneController@login');
+
+Route::filter('csrf-ajax', function () {
+    
+    if (Session::token() != Request::header('x-csrf-token')) {
+        
+        throw new Illuminate\Session\TokenMismatchException;
+    }
+});

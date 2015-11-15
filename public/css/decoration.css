@@ -15,7 +15,11 @@ body {
 div#text {
     text-align: center;
     margin: auto;
-    font-size: 50px;
+    font-size: 2rem;
+}
+
+div#text h2 {
+    font-size: 4rem;
 }
 
 @media only all and (min-width: 1200px) {

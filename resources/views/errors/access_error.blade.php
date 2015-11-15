@@ -19,7 +19,7 @@
             </div>
             <div id="text">
 
-                <h2>Bem-vindo!</h2>
+                {!! $error !!}
 
             </div>
         </div>
