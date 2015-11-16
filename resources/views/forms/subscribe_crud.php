@@ -3,7 +3,10 @@
     Nome: <input type="text" name="name" /><br />
     E-mail: <input type="email" name="email" /><br />
     Senha: <input type="password" name="password" /><br />
-    Admin<input type="radio" name="super" value="1" />
-    Normal<input type="radio" name="super" value="0" />
+    Tipo: <select name="super">
+        <option value="1">Administrador</option>
+        <option value="0">Normal</option>
+    </select>
+    <br />
     <input type="submit" />
 </form>
