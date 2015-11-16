@@ -14,8 +14,7 @@
 Route::get('/', 'NavigationController@handleSession');
 Route::get('/subscribe', 'FormsController@subscribeForm');
 Route::get('/login', 'FormsController@loginForm');
-Route::get('/listNext', 'FormsController@getUsersNext');
-Route::get('/listPrev', 'FormsController@getUsersPrev');
+Route::get('/list/{increment?}', 'FormsController@getUsersList');
 
 
 Route::post('/logout', 'SkilledOneController@logout');

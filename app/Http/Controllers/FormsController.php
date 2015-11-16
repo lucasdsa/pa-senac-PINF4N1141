@@ -23,33 +23,27 @@ class FormsController extends Controller {
         return View::make('forms.login');
     }
     
-    public function getUsersNext(Request $request) {
+    public function getUsersList($increment = 'current') {
         
         if (Auth::check() && Auth::user()->super) {
             
-            $page = (int)$request->session()->get('listUsersPageCount');
-            $request->session()->put('listUsersPageCount', (string)($page + 1));
+            $page = session('listUsersPageCount');
+            $lastPageIndex = User::all()->count() / 10 - 1;
+            
+            if ($increment == 'next' &&  $lastPageIndex > $page)
+                $page++;
+            else if ($increment == 'previous' && $page > 0)
+                $page--;
+            
+            session(['listUsersPageCount', $page]);
             $users = $this->getUsers($page, 10);
             
             return View::make('forms.users')->with('users', $users);
         }
     }
     
-    public function getUsersPrev(Request $request) {
-        
-        if (Auth::check() && Auth::user()->super) {
-            
-            $page = (int)$request->session()->get('listUsersPageCount');
-            
-            if ($page > 0)
-                $request->session()->put('listUsersPageCount', (string)($page - 1));
-            $users = getUsers($page, 10);
-            
-            return View::make('forms.users')->with('users', $users);
-        }
-    }
     
-    public function getUsers($page, $count) {
+    private function getUsers($page, $count) {
         
         return User::skip($page * $count)->take($count)->get();
     }

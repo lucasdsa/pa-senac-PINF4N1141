@@ -65,7 +65,7 @@ function ready() {
     });
     
     // Links
-    $('a').click(function (event) {
+    $('#menu, #text').on('click', 'a', (function (event) {
        
        event.preventDefault();
        
@@ -88,12 +88,15 @@ function ready() {
                logout();
                break;
            case 'listNext':
-               getForm('/listNext');
+               getForm('/list/next');
                break;
            case 'listPrev':
-               getForm('/listPrev');
+               getForm('/list/previous');
+               break;
+           case 'list':
+               getForm('list');
        }
-    });
+    }));
 }
 
 function getForm(url) {

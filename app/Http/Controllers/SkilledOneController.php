@@ -67,7 +67,7 @@ class SkilledOneController extends Controller {
             // é necessário manter informação sobre qual a página
             // atual que ele vê
             if (Auth::user()->super)
-                $request->session()->put('listUsersPageCount', '0');
+                $request->session()->put('listUsersPageCount', 0);
             
             return redirect()->intended('/');
         }
@@ -77,9 +77,10 @@ class SkilledOneController extends Controller {
         }
     }
     
-    public function logout() {
+    public function logout(Request $request) {
         
-        Auth::logout();        
+        Auth::logout();
+        $request->session()->flush();
         return 'Logout';
     }
 }
