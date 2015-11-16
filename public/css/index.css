@@ -120,3 +120,8 @@ img {
     max-width: 30px;
     max-height: 30px;
 }
+
+div.user {
+    display: inline-block;
+    white-space: nowrap;
+}
