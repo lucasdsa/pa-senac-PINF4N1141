@@ -12,12 +12,12 @@
 */
 
 Route::get('/', 'NavigationController@handleSession');
-
 Route::get('/subscribe', 'FormsController@subscribeForm');
-
 Route::get('/login', 'FormsController@loginForm');
+Route::get('/listNext', 'FormsController@getUsersNext');
+Route::get('/listPrev', 'FormsController@getUsersPrev');
+
 
 Route::post('/logout', 'SkilledOneController@logout');
-
 Route::post('/subscribe', 'SkilledOneController@subscribe');
 Route::post('/login', 'SkilledOneController@login');

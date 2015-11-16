@@ -63,6 +63,12 @@ class SkilledOneController extends Controller {
         
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             
+            // Se um administrador visualizar os outros usuários
+            // é necessário manter informação sobre qual a página
+            // atual que ele vê
+            if (Auth::user()->super)
+                $request->session()->put('listUsersPageCount', '0');
+            
             return redirect()->intended('/');
         }
         else {

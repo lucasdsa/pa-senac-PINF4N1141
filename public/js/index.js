@@ -86,6 +86,12 @@ function ready() {
                break;
            case 'logout':
                logout();
+               break;
+           case 'listNext':
+               getForm('/listNext');
+               break;
+           case 'listPrev':
+               getForm('/listPrev');
        }
     });
 }
