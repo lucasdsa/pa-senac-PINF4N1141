@@ -87,6 +87,7 @@ div.desc span {
 }
 
 div.desc img {
+    float: right;
     max-width: 20%;
 }
 
