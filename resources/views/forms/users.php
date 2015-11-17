@@ -1,6 +1,7 @@
 <?php
 
 foreach ($users as $user) {
+    
     echo '<div class="user">' . 
              '<div class="desc">' . 
                 '<span>' . $user->name . '</span>' .

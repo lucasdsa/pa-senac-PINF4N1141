@@ -79,6 +79,18 @@ function ready() {
            }
            else if (event.target.className === 'edit') {
                
+               var email = $(event.target).parent().children('span').text();
+               
+               $.ajax('/editForm', {
+                   method: 'POST',
+                   success: function (data, statusString, jqXHR) {
+                       $('#text').html(data);
+                   },
+                   error: function (jqXHR) {
+                       $('#text').text('Erro!');
+                   },
+                   data : 'email=' + encodeURIComponent(email)
+               });
            }
        }
        else { // Clicou em um link

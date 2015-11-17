@@ -18,6 +18,23 @@ class FormsController extends Controller {
             return View::make('forms.subscribe');
     }
     
+    public function editForm(Request $request) {
+        
+        $email = $request->input('email');
+        if (Auth::check() && Auth::user()->super) {
+            
+            $targetUser = User::where('email', $email)->first();
+            
+            if ($targetUser && !$targetUser->super) {
+                
+                return View::make('forms.edit_user')->with('user', $targetUser);
+            }
+            
+            return new Response('Erro!', '400');
+        }
+            
+    }
+    
     public function loginForm() {
         
         return View::make('forms.login');

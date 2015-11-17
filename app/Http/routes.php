@@ -21,3 +21,5 @@ Route::post('/logout', 'SkilledOneController@logout');
 Route::post('/subscribe', 'SkilledOneController@subscribe');
 Route::post('/login', 'SkilledOneController@login');
 Route::post('/delete', 'SkilledOneController@delete');
+Route::post('/editForm', 'FormsController@editForm');
+Route::post('/edit', 'SkilledOneController@edit');

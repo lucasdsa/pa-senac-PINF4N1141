@@ -97,15 +97,40 @@ class SkilledOneController extends Controller {
                 
                 return 'Sucesso';
             }
-            else {
                 
-                return new Response('Erro ao deletar usuário', '400');
-            }
+            return new Response('Erro ao deletar usuário', '400');
         }
     }
     
     public function edit(Request $request) {
         
+        if (Auth::check() && Auth::user()->super) {
+            
+            $name = $request->input('name');
+            $email = $request->input('email');
+            $password = $request->input('password');
+            $super = $request->input('super');
+            
+            if ($name && $email) {
+                
+                $targetUser = User::where('email', $email)->first();
+                
+                if ($targetUser) {
+                    $targetUser->name = $name;
+                    $targetUser->email = $email;
+                    
+                    if ($password)
+                        $targetUser->password = bcrypt($password);
+                        
+                    $targetUser->super = $super;
+                    $targetUser->save();               
+                    
+                    return $this->buildErrorView('Informações atualizadas', 'img/user.svg');                  
+                }
+            }
+            
+            //return new Response('Erro ao editar usuário', '400');
+        }
     }
 }
 
