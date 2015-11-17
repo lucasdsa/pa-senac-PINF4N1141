@@ -38,7 +38,7 @@ class FormsController extends Controller {
             session(['listUsersPageCount', $page]);
             $users = $this->getUsers($page, 10);
             
-            return View::make('forms.users')->with('users', $users);
+            return View::make('forms.users')->with('users', $users)->with('img', 'img/user.svg');
         }
     }
     
