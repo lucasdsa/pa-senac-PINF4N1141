@@ -157,15 +157,17 @@ function logout() {
 }
 
 function deleteUser(email) {
-    
-    $.ajax('/delete', {
-        method: 'POST',
-        success: function () {
-            $('#text').text('Usuário deletado');
-        },
-        error: function (jqXHR, textStatus, exception) {
-            $('#text').text(jqXHR.responseText);
-        },
-        data: 'email=' + encodeURIComponent(email)
-    })
+
+    if (confirm('Deseja deletar o (a) usuário (a)?')) {
+        $.ajax('/delete', {
+            method: 'POST',
+            success: function () {
+                $('#text').text('Usuário deletado');
+            },
+            error: function (jqXHR, textStatus, exception) {
+                $('#text').text(jqXHR.responseText);
+            },
+            data: 'email=' + encodeURIComponent(email)
+        });
+    }
 }
