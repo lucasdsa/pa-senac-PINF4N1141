@@ -20,3 +20,4 @@ Route::get('/list/{increment?}', 'FormsController@getUsersList');
 Route::post('/logout', 'SkilledOneController@logout');
 Route::post('/subscribe', 'SkilledOneController@subscribe');
 Route::post('/login', 'SkilledOneController@login');
+Route::post('/delete', 'SkilledOneController@delete');

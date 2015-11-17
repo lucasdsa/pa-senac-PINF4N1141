@@ -65,37 +65,51 @@ function ready() {
     });
     
     // Links
-    $('#menu, #text').on('click', 'a', (function (event) {
+    $('#menu, #text').on('click', 'a, button', (function (event) {
        
        event.preventDefault();
        
-       if ($('#menu').css('width') !== '400px')
-           $('#menu').css('visibility', 'hidden');
-       
-       switch (event.target.id) {
+       var targetId = event.target.id;
+       // O usuário clicou em um dos botões CRUD
+       if (targetId === '') {
            
-           case 'home':
-               window.location = '/';
-               break;
-           case 'add':
-           case 'subscribe':
-               getForm('/subscribe');
-               break;
-           case 'login':
-               getForm('/login');
-               break;
-           case 'logout':
-               logout();
-               break;
-           case 'listNext':
-               getForm('/list/next');
-               break;
-           case 'listPrev':
-               getForm('/list/previous');
-               break;
-           case 'list':
-               getForm('list');
+           if (event.target.className === 'delete') {
+               
+               deleteUser($(event.target).parent().children('span').text());
+           }
+           else if (event.target.className === 'edit') {
+               
+           }
        }
+       else { // Clicou em um link
+           if ($('#menu').css('width') !== '400px')
+               $('#menu').css('visibility', 'hidden');
+                
+           switch (targetId) {
+                
+               case 'home':
+                   window.location = '/';
+                   break;
+               case 'add':
+               case 'subscribe':
+                   getForm('/subscribe');
+                   break;
+               case 'login':
+                   getForm('/login');
+                   break;
+               case 'logout':
+                   logout();
+                   break;
+               case 'listNext':
+                   getForm('/list/next');
+                   break;
+               case 'listPrev':
+                   getForm('/list/previous');
+                   break;
+               case 'list':
+                   getForm('list');
+           }           
+       }      
     }));
 }
 
@@ -127,5 +141,19 @@ function logout() {
             
             $('#text').text('Ocorreu um erro inesperado!');
         }
+    });
+}
+
+function deleteUser(email) {
+    
+    $.ajax('/delete', {
+        method: 'POST',
+        success: function () {
+            $('#text').text('Usuário deletado');
+        },
+        error: function (jqXHR, textStatus, exception) {
+            $('#text').text(jqXHR.responseText);
+        },
+        data: 'email=' + encodeURIComponent(email)
     })
 }

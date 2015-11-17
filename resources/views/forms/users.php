@@ -6,9 +6,10 @@ foreach ($users as $user) {
                 '<span>' . $user->name . '</span>' .
                 '<img src=' . $img . '></img>' .
              '</div>' .
-             '<div class="crud">
-                <button>Editar</button>
-                <button>Deletar</button>' . 
+             '<div class="crud">' . 
+                '<span>' . $user->email . '</span>' .
+                '<button class="edit">Editar</button>
+                <button class="delete">Deletar</button>' . 
              '</div>' .
          '</div>';
 }

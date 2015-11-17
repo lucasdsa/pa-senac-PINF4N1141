@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\SkilledOne;
 use Illuminate\Http\Request;
@@ -82,6 +83,29 @@ class SkilledOneController extends Controller {
         Auth::logout();
         $request->session()->flush();
         return 'Logout';
+    }
+    
+    public function delete(Request $request) {
+        
+        if (Auth::check() && Auth::user()->super) {
+            
+            $email = $request->input('email');
+            $targetUser = User::where('email', $email)->first();
+            
+            if ($targetUser && !$targetUser->super) {
+                $targetUser->delete();
+                
+                return 'Sucesso';
+            }
+            else {
+                
+                return new Response('Erro ao deletar usuário', '400');
+            }
+        }
+    }
+    
+    public function edit(Request $request) {
+        
     }
 }
 

@@ -67,13 +67,11 @@ a {
 }
 
 div.user {
-    padding: 0;
     width: 200px;
-    overflow: auto;
+    overflow: hidden;
     border-style: solid;
     border-width: 1px;
     margin: 10px 10px 10px 10px;
-    padding: 10px;
     box-shadow: black 1px 1px 1px 1px;
 }
 
@@ -82,8 +80,9 @@ div.desc {
     text-align: left;
 }
 
-div.desc span {
-    width: 80%;
+div.crud span {
+    margin: auto;
+    padding: 4px;
 }
 
 div.desc img {
@@ -92,6 +91,7 @@ div.desc img {
 }
 
 div.crud {
+    font-size: 15px;
     padding: 0;
     background-color: #005C5C;
 }

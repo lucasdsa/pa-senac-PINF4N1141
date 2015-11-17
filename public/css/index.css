@@ -125,3 +125,7 @@ div.user {
     display: inline-block;
     white-space: nowrap;
 }
+
+div.crud span {
+    display: block;
+}
