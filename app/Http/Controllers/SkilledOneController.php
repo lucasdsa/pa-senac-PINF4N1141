@@ -111,9 +111,11 @@ class SkilledOneController extends Controller {
             $password = $request->input('password');
             $super = $request->input('super');
             
-            if ($name && $email) {
+            $targetId = $request->session()->get('targetId');
+            
+            if ($name && $email && $targetId) {
                 
-                $targetUser = User::where('email', $email)->first();
+                $targetUser = User::where('id', $targetId)->first();
                 
                 if ($targetUser) {
                     $targetUser->name = $name;
@@ -123,7 +125,10 @@ class SkilledOneController extends Controller {
                         $targetUser->password = bcrypt($password);
                         
                     $targetUser->super = $super;
-                    $targetUser->save();               
+                    $targetUser->save();
+                    
+                    // Remove usuário do contexto de edição
+                    session(['targetId', '']);            
                     
                     return $this->buildErrorView('Informações atualizadas', 'img/user.svg');                  
                 }

@@ -27,6 +27,9 @@ class FormsController extends Controller {
             
             if ($targetUser && !$targetUser->super) {
                 
+                // Salva o usuário que será editado
+                $request->session()->put('targetId', $targetUser->id);
+                
                 return View::make('forms.edit_user')->with('user', $targetUser);
             }
             
